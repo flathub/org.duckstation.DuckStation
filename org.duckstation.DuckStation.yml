@@ -52,4 +52,4 @@ modules:
     sources:
       - type: git
         url: https://github.com/stenzek/duckstation
-        commit: 64e0d83d67829e92c35327c1795025a9215e29b8
+        commit: 96330e556f4f2669abea0660332bc55f64f4088d

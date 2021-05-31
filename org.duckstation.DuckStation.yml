@@ -35,8 +35,9 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DUSE_SDL2=ON
-      - -DUSE_WAYLAND=1
-      - -DUSE_DRMKMS=1
+      - -DUSE_WAYLAND=ON
+      - -DUSE_X11=ON
+      - -DUSE_DRMKMS=ON
     post-install:
       - install -m 755 -t /app/bin/ bin/duckstation-nogui bin/duckstation-qt
       - |-

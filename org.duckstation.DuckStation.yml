@@ -42,12 +42,12 @@ modules:
       - install -m 755 -t /app/bin/ bin/duckstation-nogui bin/duckstation-qt
       - |-
         for px in 16 32 48 64 128 256; do
-          install -Dm644 ../dist/icon-${px}px.png /app/share/icons/hicolor/${px}x${px}/apps/org.duckstation.DuckStation.png
+          install -Dm644 ../extras/icons/icon-${px}px.png /app/share/icons/hicolor/${px}x${px}/apps/org.duckstation.DuckStation.png
         done
-      - install -Dm644 ../dist/duckstation-nogui.desktop /app/share/applications/org.duckstation.DuckStation.desktop
-      - install -Dm644 ../dist/duckstation-qt.desktop /app/share/applications/org.duckstation.DuckStation.Qt.desktop
+      - install -Dm644 ../extras/linux-desktop-files/duckstation-nogui.desktop /app/share/applications/org.duckstation.DuckStation.desktop
+      - install -Dm644 ../extras/linux-desktop-files/duckstation-qt.desktop /app/share/applications/org.duckstation.DuckStation.Qt.desktop
       - sed -i 's/^Icon=.*/Icon=org.duckstation.DuckStation/' /app/share/applications/*.desktop
-      - install -Dm644 ../dist/org.duckstation.DuckStation.metainfo.xml /app/share/metainfo/org.duckstation.DuckStation.metainfo.xml
+      - install -Dm644 ../org.duckstation.DuckStation.metainfo.xml /app/share/metainfo/org.duckstation.DuckStation.metainfo.xml
       - cp -r ../data/* bin/translations /app/bin
       - sed -i "s/date=.* v/date=\"$(git log -1 --format=%ci | awk '{print $1}')\" v/" /app/share/metainfo/org.duckstation.DuckStation.metainfo.xml
     sources:
@@ -56,3 +56,6 @@ modules:
         commit: 79dccc9d0518848fb96a9d55fd7c3cacc9d5ecf6
         # Cloning dep/msvc/qt is only necessary for Windows
         disable-submodules: true
+
+      - type: file
+        path: org.duckstation.DuckStation.metainfo.xml

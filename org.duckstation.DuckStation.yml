@@ -34,6 +34,7 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DUSE_EGL=ON
       - -DUSE_SDL2=ON
       - -DUSE_WAYLAND=ON
       - -DUSE_X11=ON

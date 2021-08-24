@@ -8,8 +8,8 @@ finish-args:
   - --filesystem=host:ro
   - --share=network
   - --socket=pulseaudio
-  - --socket=wayland
-  - --socket=fallback-x11
+  # - --socket=wayland
+  # - --socket=fallback-x11
   - --share=ipc
 
 modules:

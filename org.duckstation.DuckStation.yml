@@ -54,7 +54,7 @@ modules:
       - sed -i "s/date=.* v/date=\"$(git log -1 --format=%ci | awk '{print $1}')\" v/" /app/share/metainfo/org.duckstation.DuckStation.metainfo.xml
     sources:
       - type: git
-        url: https://github.com/stenzek/duckstation
+        url: https://github.com/stenzek/duckstation.git
         commit: ae92ce8405e3952675dd4f29ff9ce4c236821336
         # Cloning dep/msvc/qt is only necessary for Windows
         disable-submodules: true

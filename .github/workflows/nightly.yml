@@ -9,11 +9,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Change commit
+      - name: Update libevdev
         run: |
-          hash=$(git ls-remote https://github.com/stenzek/duckstation refs/tags/latest | cut -f 1)
-          sed -i "s/  commit: .*/  commit: $hash/" org.duckstation.DuckStation.yml
-      - name: Push the change
+          latest_file=$(git ls-remote --sort=version:refname https://gitlab.freedesktop.org/libevdev/libevdev.git | awk -F/ 'END { print $NF }' | tr -d '^{}')
+          evdev_url=https://www.freedesktop.org/software/libevdev
+          sed -i "s|$evdev_url.*|$evdev_url/$latest_file.tar.xz|" org.duckstation.DuckStation.yml
+          if ! git diff --exit-code --quiet; then
+            sha256=$(wget -qO- $evdev_url/$latest_file.tar.xz | sha256sum - | awk '{print $1}')
+            sed -i "/$latest_file/{n;s/sha256.*/sha256: $sha256/}" org.duckstation.DuckStation.yml
+          fi
+      - name: Update DuckStation
+        run: |
+          commit=$(git ls-remote https://github.com/stenzek/duckstation refs/tags/latest | cut -f 1)
+          sed -i "/duckstation.git/{n;s/commit.*/commit: $commit/}" org.duckstation.DuckStation.yml
+      - name: Push the changes
         run: |
           git config user.name CI
           git config user.email ""

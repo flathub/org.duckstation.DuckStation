@@ -1,4 +1,4 @@
-# Flatpak for Duckstation
+# Flatpak for DuckStation
 
 ## Installation
 

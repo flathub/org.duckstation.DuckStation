@@ -1,7 +1,7 @@
 name: Update commit hash
 on:
   schedule:
-    - cron: "0 0 * * *" # Every day at 00:00
+    - cron: "0 0 1 * *" # Every 1st
 
 jobs:
   change-commit:

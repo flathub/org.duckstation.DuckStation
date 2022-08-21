@@ -7,9 +7,9 @@ finish-args:
   - --device=all
   - --filesystem=host:ro
   - --share=network
-  - --socket=x11
-  - --socket=pulseaudio
+  - --socket=fallback-x11
   - --socket=wayland
+  - --socket=pulseaudio
   - --share=ipc
 
 modules:

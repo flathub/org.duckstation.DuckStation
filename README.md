@@ -22,7 +22,7 @@ The `flatpak-builder` package is required.
 
 - Install the SDK
 
-`flatpak install org.kde.Sdk/x86_64/5.15-21.08`
+`flatpak install org.kde.Platform/x86_64/6.3 org.kde.Sdk/x86_64/6.3`
 
 - Build Duckstation
 

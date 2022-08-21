@@ -1,16 +1,15 @@
 app-id: org.duckstation.DuckStation
 runtime: org.kde.Platform
-runtime-version: '5.15-21.08'
+runtime-version: '6.3'
 sdk: org.kde.Sdk
-command: duckstation-nogui
+command: duckstation-qt
 finish-args:
   - --device=all
   - --filesystem=host:ro
   - --share=network
   - --socket=x11
   - --socket=pulseaudio
-  # - --socket=wayland
-  # - --socket=fallback-x11
+  - --socket=wayland
   - --share=ipc
 
 modules:
@@ -26,8 +25,8 @@ modules:
       - /share
     sources:
       - type: archive
-        url: https://www.freedesktop.org/software/libevdev/libevdev-1.12.1.tar.xz
-        sha256: 1dbba41bc516d3ca7abc0da5b862efe3ea8a7018fa6e9b97ce9d39401b22426c
+        url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.0.tar.xz
+        sha256: 9edf2006cc86a5055279647c38ec923d11a821ee4dc2c3033e8d20e8ee237cd9
 
   - name: duckstation
     buildsystem: cmake-ninja
@@ -42,23 +41,29 @@ modules:
       - -DUSE_DRMKMS=ON
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
     post-install:
-      - install -m 755 -t /app/bin/ bin/duckstation-nogui bin/duckstation-qt
+      - install -m755 bin/duckstation-qt /app/bin
       - |-
-        for px in 16 32 48 64 128 256; do
-          install -Dm644 ../extras/icons/icon-${px}px.png /app/share/icons/hicolor/${px}x${px}/apps/org.duckstation.DuckStation.png
+        for image in ../*px.png; do
+          icon=${image%px*}
+          px=${icon#*-}
+          install -Dm644 $image /app/share/icons/hicolor/${px}x${px}/apps/org.duckstation.DuckStation.png
         done
-      - install -Dm644 ../extras/linux-desktop-files/duckstation-nogui.desktop /app/share/applications/org.duckstation.DuckStation.desktop
-      - install -Dm644 ../extras/linux-desktop-files/duckstation-qt.desktop /app/share/applications/org.duckstation.DuckStation.Qt.desktop
-      - sed -i 's/^Icon=.*/Icon=org.duckstation.DuckStation/' /app/share/applications/*.desktop
+      - install -Dm644 ../org.duckstation.DuckStation.desktop /app/share/applications/org.duckstation.DuckStation.desktop
       - install -Dm644 ../org.duckstation.DuckStation.metainfo.xml /app/share/metainfo/org.duckstation.DuckStation.metainfo.xml
       - cp -r ../data/* bin/translations /app/bin
       - sed -i "s/date=.* v/date=\"$(git log -1 --format=%ci | awk '{print $1}')\" v/" /app/share/metainfo/org.duckstation.DuckStation.metainfo.xml
     sources:
       - type: git
         url: https://github.com/stenzek/duckstation.git
-        commit: 3fb61865e505ba639609fbf16cb8bdf5c66e020c
+        commit: 3019aa320d45df3d70c418c1d61fddfeda11f02f
         # Cloning dep/msvc/qt is only necessary for Windows
         disable-submodules: true
 
       - type: file
         path: org.duckstation.DuckStation.metainfo.xml
+
+      - type: file
+        path: org.duckstation.DuckStation.desktop
+
+      - type: dir
+        path: icons

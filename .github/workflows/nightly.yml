@@ -1,7 +1,7 @@
 name: Update commit hash
 on:
   schedule:
-    - cron: "0 0 1 * *" # Every 1st
+    - cron: "0 0 * * *" # Every day at 00:00
 
 jobs:
   change-commit:
@@ -26,7 +26,7 @@ jobs:
           git push
       - name: Update DuckStation
         run: |
-          commit=$(git ls-remote https://github.com/stenzek/duckstation refs/tags/latest | cut -f 1)
+          commit=$(git ls-remote https://github.com/stenzek/duckstation master | cut -f 1)
           sed -i "/duckstation.git/{n;s/commit.*/commit: $commit/}" org.duckstation.DuckStation.yml
           git commit -am "Update duckstation.git" || exit 0
           git push

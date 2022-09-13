@@ -11,6 +11,7 @@ finish-args:
   - --socket=wayland
   - --socket=pulseaudio
   - --share=ipc
+  - --talk-name=org.freedesktop.ScreenSaver
 
 modules:
   - name: libevdev
@@ -27,6 +28,14 @@ modules:
       - type: archive
         url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.0.tar.xz
         sha256: 9edf2006cc86a5055279647c38ec923d11a821ee4dc2c3033e8d20e8ee237cd9
+
+  # needed for screensaver inhibition
+  - name: xdg-screensaver-shim
+    buildsystem: meson
+    sources:
+      - type: archive
+        url: https://github.com/Unrud/xdg-screensaver-shim/archive/0.0.2.tar.gz
+        sha256: 0ed2a69fe6ee6cbffd2fe16f85116db737f17fb1e79bfb812d893cf15c728399
 
   - name: duckstation
     buildsystem: cmake-ninja

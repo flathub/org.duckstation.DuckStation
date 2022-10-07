@@ -46,7 +46,7 @@ modules:
     no-make-install: true
     builddir: true
     config-opts:
-      - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DUSE_EGL=ON
       - -DUSE_SDL2=ON
       - -DUSE_WAYLAND=ON

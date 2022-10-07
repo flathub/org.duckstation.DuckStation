@@ -28,6 +28,10 @@ modules:
       - type: archive
         url: https://www.freedesktop.org/software/libevdev/libevdev-1.13.0.tar.xz
         sha256: 9edf2006cc86a5055279647c38ec923d11a821ee4dc2c3033e8d20e8ee237cd9
+        x-checker-data:
+          type: anitya
+          project-id: 20540
+          url-template: https://www.freedesktop.org/software/libevdev/libevdev-$version.tar.xz
 
   # needed for screensaver inhibition
   - name: xdg-screensaver-shim
@@ -64,6 +68,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/stenzek/duckstation.git
+        branch: master
         commit: 10f98106dd0468c88a1f81a891dfbb1e25b764fd
         # Cloning dep/msvc/qt is only necessary for Windows
         disable-submodules: true

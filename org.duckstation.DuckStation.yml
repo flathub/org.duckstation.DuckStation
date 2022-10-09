@@ -64,12 +64,13 @@ modules:
       - install -Dm644 ../org.duckstation.DuckStation.desktop /app/share/applications/org.duckstation.DuckStation.desktop
       - install -Dm644 ../org.duckstation.DuckStation.metainfo.xml /app/share/metainfo/org.duckstation.DuckStation.metainfo.xml
       - cp -r ../data/* bin/translations /app/bin
-      - sed -i "s/date=.* v/date=\"$(git log -1 --format=%ci | awk '{print $1}')\" v/" /app/share/metainfo/org.duckstation.DuckStation.metainfo.xml
+      - sed -i "s/date=.* v/date=\"$(git log -1 --format=%ci | awk '{print $1}')\"
+        v/" /app/share/metainfo/org.duckstation.DuckStation.metainfo.xml
     sources:
       - type: git
         url: https://github.com/stenzek/duckstation.git
         branch: master
-        commit: 10f98106dd0468c88a1f81a891dfbb1e25b764fd
+        commit: 3f68ef39ae42fb220c339a94b8d8a2a9be691631
         # Cloning dep/msvc/qt is only necessary for Windows
         disable-submodules: true
 

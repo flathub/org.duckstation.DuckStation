@@ -53,8 +53,10 @@ modules:
       - -DUSE_X11=ON
       - -DUSE_DRMKMS=ON
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+      - -DBUILD_NOGUI_FRONTEND=ON
     post-install:
       - install -m755 bin/duckstation-qt /app/bin
+      - install -m755 bin/duckstation-nogui /app/bin
       - |-
         for image in ../*px.png; do
           icon=${image%px*}

@@ -12,8 +12,6 @@
 
 `flatpak run org.duckstation.DuckStation`
 
-On older hardware, adding `--env=MESA_GL_VERSION_OVERRIDE=4.2` may be needed to prevent it to crash at startup.
-
 To uninstall: `flatpak uninstall -y org.duckstation.DuckStation`
 
 ## Build

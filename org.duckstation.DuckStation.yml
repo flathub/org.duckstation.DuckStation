@@ -82,3 +82,14 @@ modules:
 
       - type: dir
         path: icons
+
+      # Fixes
+      # /usr/lib/gcc/x86_64-unknown-linux-gnu/12.1.0/../../../../x86_64-unknown-linux-gnu/bin/ld: /usr/lib/x86_64-linux-gnu/libpng16.so.16: undefined reference to `inflateReset2@ZLIB_1.2.3.4'
+      # /usr/lib/gcc/x86_64-unknown-linux-gnu/12.1.0/../../../../x86_64-unknown-linux-gnu/bin/ld: /usr/lib/x86_64-linux-gnu/libpng16.so.16: undefined reference to `inflateValidate@ZLIB_1.2.9'
+      - type: archive
+        url: https://github.com/madler/zlib/archive/refs/tags/v1.2.12.tar.gz
+        sha256: d8688496ea40fb61787500e863cc63c9afcbc524468cedeb478068924eb54932
+        dest: dep/zlib-1.2.12
+
+      - type: patch
+        path: zlib-1.2.12.patch

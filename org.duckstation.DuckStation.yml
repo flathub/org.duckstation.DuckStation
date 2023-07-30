@@ -70,7 +70,7 @@ modules:
       - type: git
         url: https://github.com/stenzek/duckstation.git
         branch: master
-        commit: 2e8b6370cf6b257949acb6e06f6259d0756a22c9
+        commit: 0575588e20d7c36a1a9a79e1ab90d6325fa9cda6
         # Cloning dep/msvc/qt is only necessary for Windows
         disable-submodules: true
 

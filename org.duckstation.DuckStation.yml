@@ -3,6 +3,8 @@ runtime: org.kde.Platform
 runtime-version: '6.5'
 sdk: org.kde.Sdk
 command: duckstation-qt
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.llvm16
 finish-args:
   - --device=all
   - --filesystem=host:ro
@@ -46,13 +48,22 @@ modules:
     no-make-install: true
     builddir: true
     config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_BUILD_TYPE=Release
       - -DUSE_EGL=ON
       - -DUSE_SDL2=ON
       - -DUSE_WAYLAND=ON
       - -DUSE_X11=ON
       - -DUSE_DRMKMS=ON
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
+    build-options:
+      append-ld-library-path: /usr/lib/sdk/llvm16/lib
+      append-path: /usr/lib/sdk/llvm16/bin
+      env:
+        AR: llvm-ar
+        CC: clang
+        CXX: clang++
+        RANLIB: llvm-ranlib
+      ldflags: -fuse-ld=lld
     post-install:
       - install -m755 bin/duckstation-qt /app/bin
       - |-

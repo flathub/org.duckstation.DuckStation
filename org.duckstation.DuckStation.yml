@@ -94,6 +94,9 @@ modules:
       - type: dir
         path: icons
 
+      - type: patch
+        path: cmakelists.patch
+
       # Fixes
       # /usr/lib/gcc/x86_64-unknown-linux-gnu/12.1.0/../../../../x86_64-unknown-linux-gnu/bin/ld: /usr/lib/x86_64-linux-gnu/libpng16.so.16: undefined reference to `inflateReset2@ZLIB_1.2.3.4'
       # /usr/lib/gcc/x86_64-unknown-linux-gnu/12.1.0/../../../../x86_64-unknown-linux-gnu/bin/ld: /usr/lib/x86_64-linux-gnu/libpng16.so.16: undefined reference to `inflateValidate@ZLIB_1.2.9'

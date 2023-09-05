@@ -1,8 +1,8 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 8d0cc1bc..48c78998 100644
+index d35c2952..90d28ab6 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -72,13 +72,13 @@ endif()
+@@ -67,7 +67,7 @@ endif()
  
  # Required libraries.
  if(USE_SDL2)
@@ -11,6 +11,8 @@ index 8d0cc1bc..48c78998 100644
  endif()
  if(NOT WIN32 AND NOT ANDROID)
    find_package(CURL REQUIRED)
+@@ -77,7 +77,7 @@ if(NOT WIN32 AND NOT ANDROID)
+   endif()
  endif()
  if(BUILD_QT_FRONTEND)
 -  find_package(Qt6 6.5.1 COMPONENTS Core Gui Widgets Network LinguistTools REQUIRED)

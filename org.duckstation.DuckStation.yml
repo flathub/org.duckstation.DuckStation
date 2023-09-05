@@ -96,14 +96,3 @@ modules:
 
       - type: patch
         path: cmakelists.patch
-
-      # Fixes
-      # /usr/lib/gcc/x86_64-unknown-linux-gnu/12.1.0/../../../../x86_64-unknown-linux-gnu/bin/ld: /usr/lib/x86_64-linux-gnu/libpng16.so.16: undefined reference to `inflateReset2@ZLIB_1.2.3.4'
-      # /usr/lib/gcc/x86_64-unknown-linux-gnu/12.1.0/../../../../x86_64-unknown-linux-gnu/bin/ld: /usr/lib/x86_64-linux-gnu/libpng16.so.16: undefined reference to `inflateValidate@ZLIB_1.2.9'
-      - type: archive
-        url: https://github.com/madler/zlib/archive/refs/tags/v1.2.13.tar.gz
-        sha256: 1525952a0a567581792613a9723333d7f8cc20b87a81f920fb8bc7e3f2251428
-        dest: dep/zlib-1.2.13
-
-      - type: patch
-        path: zlib-1.2.13.patch

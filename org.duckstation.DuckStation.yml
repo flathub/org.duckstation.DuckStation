@@ -16,6 +16,7 @@ finish-args:
   - --talk-name=org.freedesktop.ScreenSaver
 
 modules:
+  - shared-modules/SDL2/SDL2-no-libdecor.json
   - name: libevdev
     buildsystem: meson
     config-opts:
@@ -49,11 +50,6 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
-      - -DUSE_EGL=ON
-      - -DUSE_SDL2=ON
-      - -DUSE_WAYLAND=ON
-      - -DUSE_X11=ON
-      - -DUSE_DRMKMS=ON
       - -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON
     build-options:
       append-ld-library-path: /usr/lib/sdk/llvm16/lib
@@ -81,7 +77,7 @@ modules:
       - type: git
         url: https://github.com/stenzek/duckstation.git
         branch: master
-        commit: 57cdb180c61858d5ee0846ff88a57e338f6fbec4
+        commit: 7fc4b89719caf0c62e6ec5ac15d3ad663397b3c8
         # Cloning dep/msvc/qt is only necessary for Windows
         disable-submodules: true
 
@@ -93,6 +89,3 @@ modules:
 
       - type: dir
         path: icons
-
-      - type: patch
-        path: cmakelists.patch

@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop-application">
+<component type="desktop">
   <id>org.duckstation.DuckStation</id>
   <launchable type="desktop-id">org.duckstation.DuckStation.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
   <name>DuckStation</name>
-  <summary>PlayStation 1/PSX emulator</summary>
+  <developer_name>DuckStation</developer_name>
+  <summary>PlayStation Emulator</summary>
   <description>
-    <p>
-      DuckStation is an simulator/emulator of the Sony PlayStation(TM) console, focusing on playability, speed, and long-term maintainability.
-      The goal is to be as accurate as possible while maintaining performance suitable for low-end devices.
-    </p>
+    <p>DuckStation is an simulator/emulator of the Sony PlayStation(TM) console, focusing on playability, speed, and long-term maintainability. The goal is to be as accurate as possible while maintaining performance suitable for low-end devices.</p>
+    <p>"Hack" options are discouraged, the default configuration should support all playable games with only some of the enhancements having compatibility issues.</p>
+    <p>"PlayStation" and "PSX" are registered trademarks of Sony Interactive Entertainment Europe Limited. This project is not affiliated in any way with Sony Interactive Entertainment.</p>
   </description>
+  <url type="homepage">https://www.duckstation.org/</url>
+  <url type="help">https://github.com/stenzek/duckstation</url>
+  <url type="vcs-browser">https://github.com/stenzek/duckstation</url>
   <screenshots>
-    <screenshot type="default"><image>https://github.com/stenzek/duckstation/raw/md-images/main.png</image></screenshot>
-    <screenshot><image>https://github.com/stenzek/duckstation/raw/md-images/bigduck.png</image></screenshot>
-    <screenshot><image>https://github.com/stenzek/duckstation/raw/md-images/main-qt.png</image></screenshot>
-    <screenshot><image>https://github.com/stenzek/duckstation/raw/md-images/gamegrid.png</image></screenshot>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/stenzek/duckstation/md-images/main-qt.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/stenzek/duckstation/md-images/bigduck.png</image>
+    </screenshot>
   </screenshots>
-  <categories>
-    <category>Games</category>
-    <category>Emulator</category>
-  </categories>
-  <url type="homepage">https://duckstation.org/</url>
-  <url type="help">https://www.duckstation.org/wiki/Main_Page</url>
-  <developer_name>Connor McLaughlin</developer_name>
-  <content_rating type="oars-1.1" />
+  <content_rating type="oars-1.1"/>
+  <update_contact>stenzek_AT_gmail.com</update_contact>
   <releases>
-    <release date="2022-08-21" version="nightly" />
+    <release version="0.1-5869-ga45b50c3" date="2023-09-29" />
   </releases>
 </component>

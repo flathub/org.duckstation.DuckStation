@@ -21,7 +21,8 @@ The `flatpak-builder` package is required.
 - Install the SDK
 
 `flatpak install org.kde.Platform/x86_64/6.5 org.kde.Sdk/x86_64/6.5`
+`flatpak install org.freedesktop.Sdk.Extension.llvm16`
 
 - Build Duckstation
 
-`flatpak-builder --user --install --force-clean build-dir org.duckstation.DuckStation.yml`
+`flatpak-builder --user --install --force-clean build-dir org.duckstation.DuckStation.json`

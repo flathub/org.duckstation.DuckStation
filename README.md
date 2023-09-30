@@ -1,5 +1,9 @@
 # Flatpak for DuckStation
 
+NOTE: The manifest and XML in this repository are automatically generated, see https://github.com/stenzek/duckstation/blob/master/scripts/flatpak/update-flathub.sh
+
+Please do not submit Pull Requests, as any changes will get lost on next update.
+
 ## Installation
 
 1. [Set up Flatpak](https://www.flatpak.org/setup/)

@@ -36,33 +36,27 @@
           "-DCMAKE_CXX_COMPILER=/usr/lib/sdk/llvm16/bin/clang++",
           "-DCMAKE_EXE_LINKER_FLAGS_INIT=-fuse-ld=lld",
           "-DCMAKE_MODULE_LINKER_FLAGS_INIT=-fuse-ld=lld",
-          "-DCMAKE_SHARED_LINKER_FLAGS_INIT=-fuse-ld=lld",
-          "-DDISABLE_GEN_SCM_VERSION=ON"
+          "-DCMAKE_SHARED_LINKER_FLAGS_INIT=-fuse-ld=lld"
         ]
       },
       "sources": [
         {
           "type": "git",
           "url": "https://github.com/stenzek/duckstation.git",
-          "branch": "master",
-          "commit": "a45b50c3e996af823d35a6a193458532c4f4316d"
+          "commit": "90d0029c34829a9d8f84a01c035b0465e0c1e61a",
+          "disable-shallow-clone": true
         },
         {
           "type": "file",
-          "path": "org.duckstation.DuckStation.metainfo.xml"
-        },
-        {
-          "type": "file",
-          "path": "scmversion.cpp",
-          "dest": "src/scmversion"
+          "path": "org.duckstation.DuckStation.metainfo.xml",
+          "dest": "scripts/flatpak"
         }
       ],
       "post-install": [
         "cp -a \"${FLATPAK_BUILDER_BUILDDIR}/bin\" ${FLATPAK_DEST}",
-        "install -Dm644 scripts/duckstation-qt.png ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/org.duckstation.DuckStation.png",
-        "install -Dm644 scripts/duckstation-qt.desktop ${FLATPAK_DEST}/share/applications/org.duckstation.DuckStation.desktop",
-        "desktop-file-edit --set-key=Icon --set-value=org.duckstation.DuckStation ${FLATPAK_DEST}/share/applications/org.duckstation.DuckStation.desktop",
-        "install -Dm644 org.duckstation.DuckStation.metainfo.xml ${FLATPAK_DEST}/share/metainfo/org.duckstation.DuckStation.metainfo.xml"
+        "install -Dm644 scripts/org.duckstation.DuckStation.png ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/org.duckstation.DuckStation.png",
+        "install -Dm644 scripts/org.duckstation.DuckStation.desktop ${FLATPAK_DEST}/share/applications/org.duckstation.DuckStation.desktop",
+        "install -Dm644 scripts/flatpak/org.duckstation.DuckStation.metainfo.xml ${FLATPAK_DEST}/share/metainfo/org.duckstation.DuckStation.metainfo.xml"
       ]
     }
   ]

@@ -12,10 +12,10 @@
     "--allow=bluetooth",
     "--share=network",
     "--share=ipc",
-    "--socket=fallback-x11",
-    "--socket=wayland",
+    "--socket=x11",
     "--socket=pulseaudio",
-    "--talk-name=org.freedesktop.ScreenSaver"
+    "--talk-name=org.freedesktop.ScreenSaver",
+    "--env=QT_QPA_PLATFORM=xcb"
   ],
   "modules": [
     "modules/20-sdl2.json",
@@ -43,7 +43,7 @@
         {
           "type": "git",
           "url": "https://github.com/stenzek/duckstation.git",
-          "commit": "cecae91b0c833d2e3127b20b06e7d0f089216b4b",
+          "commit": "9d06fde276948cdb5eaf608d9429f714a3391f6c",
           "disable-shallow-clone": true
         },
         {

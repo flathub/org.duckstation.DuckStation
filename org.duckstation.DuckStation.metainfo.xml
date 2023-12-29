@@ -1,31 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <component type="desktop">
+  <!--Created with jdAppStreamEdit 8.0-->
   <id>org.duckstation.DuckStation</id>
+  <name>DuckStation</name>
+  <summary>PlayStation Emulator</summary>
+  <summary xml:lang="de">PlayStation Emulator</summary>
+  <developer_name>Connor McLaughlin</developer_name>
   <launchable type="desktop-id">org.duckstation.DuckStation.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_license>GPL-3.0</project_license>
-  <name>DuckStation</name>
-  <developer_name>Stenzek</developer_name>
-  <summary>PlayStation Emulator</summary>
+  <project_license>GPL-3.0-only</project_license>
+  <update_contact>stenzek_AT_gmail.com</update_contact>
   <description>
     <p>DuckStation is an simulator/emulator of the Sony PlayStation(TM) console, focusing on playability, speed, and long-term maintainability. The goal is to be as accurate as possible while maintaining performance suitable for low-end devices.</p>
+    <p xml:lang="de">DuckStation ist ein Simulator/Emulator der Sony PlayStation(TM) Konsole, der sich auf Spielbarkeit, Geschwindigkeit und langfristige Wartbarkeit konzentriert. Das Ziel ist, so präzise wie möglich zu sein und dabei eine Leistung zu erbringen, die für Low-End-Geräte geeignet ist.</p>
     <p>"Hack" options are discouraged, the default configuration should support all playable games with only some of the enhancements having compatibility issues.</p>
+    <p xml:lang="de">"Hacks" werden nicht empfohlen. Die Standardkonfiguration sollte alle spielbaren Spiele unterstützen, wobei nur einige der Verbesserungen Kompatibilitätsprobleme verursachen.</p>
     <p>"PlayStation" and "PSX" are registered trademarks of Sony Interactive Entertainment Europe Limited. This project is not affiliated in any way with Sony Interactive Entertainment.</p>
+    <p xml:lang="de">"PlayStation" und "PSX" sind eingetragene Marken von Sony Interactive Entertainment Europe Limited. Dieses Projekt steht in keiner Verbindung zu Sony Interactive Entertainment.</p>
   </description>
-  <content_rating type="oars-1.1"/>
-  <update_contact>stenzek_AT_gmail.com</update_contact>
-  <url type="homepage">https://www.duckstation.org/</url>
-  <url type="help">https://github.com/stenzek/duckstation</url>
-  <url type="vcs-browser">https://github.com/stenzek/duckstation</url>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/stenzek/duckstation/md-images/main-qt.png</image>
+      <caption>The game library</caption>
+      <image type="source">https://raw.githubusercontent.com/stenzek/duckstation/md-images/main-qt.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/stenzek/duckstation/md-images/bigduck.png</image>
+      <caption>The in-game menu</caption>
+      <image type="source">https://raw.githubusercontent.com/stenzek/duckstation/md-images/bigduck.png</image>
     </screenshot>
   </screenshots>
   <releases>
-    <release version="0.1-6168-ga9ee2a34" date="2023-12-09" />
+    <release version="@GIT_VERSION@" date="@GIT_DATE@"/>
   </releases>
+  <url type="homepage">https://www.duckstation.org/</url>
+  <url type="help">https://github.com/stenzek/duckstation</url>
+  <url type="vcs-browser">https://github.com/stenzek/duckstation</url>
+  <content_rating type="oars-1.1"/>
 </component>

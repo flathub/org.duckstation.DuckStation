@@ -44,7 +44,7 @@
         {
           "type": "git",
           "url": "https://github.com/stenzek/duckstation.git",
-          "commit": "a9ee2a34d849135e207da8f1eedd42a646f20bc5",
+          "commit": "cf760bbe4206483338590037070e347192870f08",
           "disable-shallow-clone": true
         },
         {

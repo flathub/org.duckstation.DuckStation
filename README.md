@@ -1,8 +1,11 @@
 # Flatpak for DuckStation
 
-NOTE: The manifest and XML in this repository are automatically generated, see https://github.com/stenzek/duckstation/blob/master/scripts/flatpak/update-flathub.sh
-
-Please do not submit Pull Requests, as any changes will get lost on next update.
+> [!CAUTION]
+> The manifest and metainfo in this repository are automatically generated from the upstream repository.
+> 
+> Please do not submit Pull Requests, they will be closed, as any changes will get lost on next update.
+> 
+> See https://github.com/stenzek/duckstation/blob/master/scripts/flatpak/update-flathub.sh.
 
 ## Installation
 
@@ -24,7 +27,7 @@ The `flatpak-builder` package is required.
 
 - Install the SDK
 
-`flatpak install org.kde.Platform/x86_64/6.5 org.kde.Sdk/x86_64/6.5 org.freedesktop.Sdk.Extension.llvm16`
+`flatpak install org.kde.Platform/x86_64/6.6 org.kde.Sdk/x86_64/6.6 org.freedesktop.Sdk.Extension.llvm17`
 
 - Build DuckStation
 

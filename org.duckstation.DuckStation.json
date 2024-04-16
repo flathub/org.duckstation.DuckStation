@@ -1,7 +1,7 @@
 {
   "app-id": "org.duckstation.DuckStation",
   "runtime": "org.kde.Platform",
-  "runtime-version": "6.6",
+  "runtime-version": "6.7",
   "sdk": "org.kde.Sdk",
   "sdk-extensions": [
     "org.freedesktop.Sdk.Extension.llvm17"
@@ -20,6 +20,7 @@
   "modules": [
     "modules/20-sdl2.json",
     "modules/21-libbacktrace.json",
+    "modules/22-shaderc.json",
     {
       "name": "duckstation",
       "buildsystem": "cmake-ninja",
@@ -44,7 +45,7 @@
         {
           "type": "git",
           "url": "https://github.com/stenzek/duckstation.git",
-          "commit": "2b7008bd93815f3a7348d1f6f5655fa022698428",
+          "commit": "4e0c417add264226b3db065c1466791f0591a1b5",
           "disable-shallow-clone": true
         },
         {

@@ -12,7 +12,6 @@ finish-args:
   - --socket=wayland
   - --socket=pulseaudio
   - --share=ipc
-  - --talk-name=org.freedesktop.ScreenSaver
 
 modules:
   - name: duckstation
@@ -42,17 +41,6 @@ modules:
           url-query: |
             map(select(.tag_name | startswith("v"))) | first | .assets |
             map((select(.name=="DuckStation-arm64.AppImage"))) | first | .browser_download_url
-          version-query: map(select(.tag_name | startswith("v"))) | first | .tag_name
-      - type: file
-        url: https://github.com/stenzek/duckstation/releases/download/v0.1-12442/DuckStation-armhf.AppImage
-        sha256: 079b150939a54d2774fb5d75bc1a2d1f7599eec7fbb002dacb06c6fbbe117f5e
-        only-arches: [armhf]
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/stenzek/duckstation/releases
-          url-query: |
-            map(select(.tag_name | startswith("v"))) | first | .assets |
-            map((select(.name=="DuckStation-armhf.AppImage"))) | first | .browser_download_url
           version-query: map(select(.tag_name | startswith("v"))) | first | .tag_name
       - type: file
         url: https://github.com/stenzek/duckstation/releases/download/v0.1-12442/DuckStation-x64.AppImage

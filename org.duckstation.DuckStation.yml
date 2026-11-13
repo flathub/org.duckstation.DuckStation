@@ -1,0 +1,59 @@
+app-id: org.duckstation.DuckStation
+runtime: org.freedesktop.Platform
+runtime-version: '26.08'
+sdk: org.freedesktop.Sdk
+command: duckstation-qt
+finish-args:
+  - --device=all
+  - --allow=bluetooth
+  - --filesystem=host:ro
+  - --share=network
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --share=ipc
+
+modules:
+  - name: duckstation
+    buildsystem: simple
+    build-commands:
+      - chmod +x DuckStation-*.AppImage
+      - ./DuckStation-*.AppImage --appimage-extract
+      - mv squashfs-root ${FLATPAK_DEST}
+      - mkdir -p /app/bin ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps ${FLATPAK_DEST}/share/applications
+      - ln -s ${FLATPAK_DEST}/squashfs-root/AppRun /app/bin/duckstation-qt
+      - cp ${FLATPAK_DEST}/squashfs-root/org.duckstation.DuckStation.png
+        ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/org.duckstation.DuckStation.png
+      - cp ${FLATPAK_DEST}/squashfs-root/org.duckstation.DuckStation.desktop ${FLATPAK_DEST}/share/applications/org.duckstation.DuckStation.desktop
+      - |-
+        set -eux
+        VERSION=$(grep -oPm1 "(?<=download/).*(?=/)" org.duckstation.DuckStation.yml)
+        sed -i 's|</component>|<releases><release date="'$(date -I)'" version="'$VERSION'"/></releases></component>|' org.duckstation.DuckStation.metainfo.xml
+      - install -Dm644 org.duckstation.DuckStation.metainfo.xml ${FLATPAK_DEST}/share/metainfo/org.duckstation.DuckStation.metainfo.xml
+    sources:
+      - type: file
+        url: https://github.com/stenzek/duckstation/releases/download/v0.1-12442/DuckStation-arm64.AppImage
+        sha256: dce6ca77055ace60491781b6b57f3e55e9b54678777ac575ac2471c22ad1128e
+        only-arches: [aarch64]
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/stenzek/duckstation/releases
+          url-query: |
+            map(select(.tag_name | startswith("v"))) | first | .assets |
+            map((select(.name=="DuckStation-arm64.AppImage"))) | first | .browser_download_url
+          version-query: map(select(.tag_name | startswith("v"))) | first | .tag_name
+      - type: file
+        url: https://github.com/stenzek/duckstation/releases/download/v0.1-12442/DuckStation-x64.AppImage
+        sha256: 4d5c3dcfd9937dc9e77b8fcd5f879b8ec0c69551d5ed13462592073608542fca
+        only-arches: [x86_64]
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/stenzek/duckstation/releases
+          url-query: |
+            map(select(.tag_name | startswith("v"))) | first | .assets |
+            map((select(.name=="DuckStation-x64.AppImage"))) | first | .browser_download_url
+          version-query: map(select(.tag_name | startswith("v"))) | first | .tag_name
+      - type: file
+        path: org.duckstation.DuckStation.metainfo.xml
+      - type: file
+        path: org.duckstation.DuckStation.yml

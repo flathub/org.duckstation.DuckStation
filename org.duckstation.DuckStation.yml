@@ -6,7 +6,6 @@ command: duckstation-qt
 finish-args:
   - --device=all
   - --allow=bluetooth
-  - --filesystem=host:ro
   - --share=network
   - --socket=fallback-x11
   - --socket=wayland

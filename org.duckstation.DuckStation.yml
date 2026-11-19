@@ -31,8 +31,8 @@ modules:
       - install -Dm644 org.duckstation.DuckStation.metainfo.xml ${FLATPAK_DEST}/share/metainfo/org.duckstation.DuckStation.metainfo.xml
     sources:
       - type: file
-        url: https://github.com/stenzek/duckstation/releases/download/v0.1-12442/DuckStation-arm64.AppImage
-        sha256: dce6ca77055ace60491781b6b57f3e55e9b54678777ac575ac2471c22ad1128e
+        url: https://github.com/stenzek/duckstation/releases/download/v0.1-12640/DuckStation-arm64.AppImage
+        sha256: 340a00596f03bd784a5ef37f85171668159576b23e48e3391c7a7f4a0befb5ab
         only-arches: [aarch64]
         x-checker-data:
           type: json
@@ -42,8 +42,8 @@ modules:
             map((select(.name=="DuckStation-arm64.AppImage"))) | first | .browser_download_url
           version-query: map(select(.tag_name | startswith("v"))) | first | .tag_name
       - type: file
-        url: https://github.com/stenzek/duckstation/releases/download/v0.1-12442/DuckStation-x64.AppImage
-        sha256: 4d5c3dcfd9937dc9e77b8fcd5f879b8ec0c69551d5ed13462592073608542fca
+        url: https://github.com/stenzek/duckstation/releases/download/v0.1-12640/DuckStation-x64.AppImage
+        sha256: 6a1be1dba27ad54f5278c4268dca53ee0cc99c94394be2bafc99138c54263314
         only-arches: [x86_64]
         x-checker-data:
           type: json

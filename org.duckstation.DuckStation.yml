@@ -24,10 +24,6 @@ modules:
       - cp ${FLATPAK_DEST}/squashfs-root/org.duckstation.DuckStation.png
         ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/org.duckstation.DuckStation.png
       - cp ${FLATPAK_DEST}/squashfs-root/org.duckstation.DuckStation.desktop ${FLATPAK_DEST}/share/applications/org.duckstation.DuckStation.desktop
-      - |-
-        set -eux
-        VERSION=$(grep -oPm1 "(?<=download/).*(?=/)" org.duckstation.DuckStation.yml)
-        sed -i 's|</component>|<releases><release date="'$(date -I)'" version="'$VERSION'"/></releases></component>|' org.duckstation.DuckStation.metainfo.xml
       - install -Dm644 org.duckstation.DuckStation.metainfo.xml ${FLATPAK_DEST}/share/metainfo/org.duckstation.DuckStation.metainfo.xml
     sources:
       - type: file
@@ -54,5 +50,3 @@ modules:
           version-query: map(select(.tag_name | startswith("v"))) | first | .tag_name
       - type: file
         path: org.duckstation.DuckStation.metainfo.xml
-      - type: file
-        path: org.duckstation.DuckStation.yml

@@ -11,6 +11,7 @@ finish-args:
   - --socket=wayland
   - --socket=pulseaudio
   - --share=ipc
+  - --talk-name=org.freedesktop.ScreenSaver
 
 modules:
   - name: duckstation
